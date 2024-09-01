@@ -1,0 +1,19 @@
+kuma:
+  controlPlane:
+    mode: zone
+    zone: global
+    namespace: kong-mesh-gateway
+    kdsGlobalAddress: grpcs://us.mesh.sync.konghq.com:443
+    konnect:
+      cpId: 20eba2d4-f6d6-4d86-8327-9a702f17fde9
+    secrets:
+      - Env: KMESH_MULTIZONE_ZONE_KDS_AUTH_CP_TOKEN_INLINE
+        Secret: cp-token
+        Key: token
+      - Env: "KMESH_LICENSE_INLINE"
+        Secret: "kong-mesh-license"
+        Key: "license.json"
+  ingress:
+    enabled: true
+  egress:
+    enabled: true

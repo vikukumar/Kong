@@ -1,0 +1,15 @@
+apiVersion: config.konghq.com/v1
+kind: Dataplane
+metadata:
+  name: localdp
+  namespace: kong-mesh-system
+spec:
+  networking:
+    inbound:
+      - port: 80
+        servicePort: 8080
+        protocol: TCP
+    outbound:
+      - port: 80
+        protocol: TCP
+  mesh: default

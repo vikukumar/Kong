@@ -1,0 +1,16 @@
+apiVersion: kuma.io/v1alpha1
+kind: MeshTrafficPermission
+metadata:
+  namespace: kong-mesh-system
+  name: redis
+spec:
+  targetRef:
+    kind: MeshService
+    name: redis_kuma-demo_svc_6379
+  from:
+    - targetRef:
+        kind: MeshSubset
+        tags:
+          kuma.io/service: demo-app_kuma-demo_svc_5000
+      default:
+        action: Allow
